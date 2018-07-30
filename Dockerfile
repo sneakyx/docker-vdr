@@ -13,6 +13,14 @@ RUN apt-get install vdr dvb-apps -y
 # install vdr plugins
 RUN apt-get install vdr-plugin-vnsiserver vdr-plugin-live vdr-plugin-streamdev-server vdr-plugin-epgsearch -y
 
+# others action
+RUN mkdir /recordings
+
+# copy local files
+ADD run.sh /run.sh
+
 # ports and volumes
 EXPOSE 8008 34890
-VOLUME /config /recordings
+VOLUME /recordings
+
+CMD ["/run.sh"]
