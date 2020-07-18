@@ -18,6 +18,7 @@ RUN mkdir /recordings
 
 # copy local files
 ADD run.sh /run.sh
+RUN chmod +x /run.sh
 
 # ports and volumes
 EXPOSE 8008 34890
